@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SAWAN YADAV — Portfolio</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- AOS for scroll animations -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+  <!-- jsPDF (for Resume -> PDF) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+</head>
+<body data-theme="dark">
+
+  <!-- LOADER -->
+  <div id="siteLoader" class="loader">
+    <div class="loader-box glass">
+      <div class="loader-logo">SAWAN</div>
+      <div class="loader-sub">Building digital experiences</div>
+      <div class="loader-spinner" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <!-- SCROLL PROGRESS -->
+  <div id="progressWrap" aria-hidden="true">
+    <div id="progressBar"></div>
+  </div>
+
+  <!-- BACKGROUND accent -->
+  <div id="bg-anim" aria-hidden="true"></div>
+
+  <!-- Floating Social Sidebar (icons = Lucide-style light line icons inline SVG) -->
+  <aside class="social-sidebar" aria-hidden="false">
+    <a href="https://github.com/mrprivate2" title="GitHub" aria-label="GitHub" target="_blank" rel="noopener">
+      <!-- GitHub line icon -->
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-10 0C3.27.65 2.09 1 2.09 1A5.07 5.07 0 0 0 2 4.77c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 7.5 18.13V22"></path>
+      </svg>
+    </a>
+
+    <a href="https://www.linkedin.com/in/sawan-yadav-84a958329" title="LinkedIn" aria-label="LinkedIn" target="_blank" rel="noopener">
+      <!-- LinkedIn line icon -->
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-14h4v2"></path>
+        <rect x="2" y="9" width="4" height="12"></rect>
+        <circle cx="4" cy="4" r="2"></circle>
+      </svg>
+    </a>
+
+    <a href="https://x.com/SAWANYDUV" title="Twitter (X)" aria-label="X" target="_blank" rel="noopener">
+      <!-- X / Twitter line icon -->
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+      </svg>
+    </a>
+
+    <a href="mailto:sawanyadav3010@gmail.com" title="Mail" aria-label="Mail">
+      <!-- Mail line icon -->
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4 4h16v16H4z"></path>
+        <polyline points="22,6 12,13 2,6"></polyline>
+      </svg>
+    </a>
+  </aside>
+
+  <!-- NAV -->
+  <nav class="topnav glass" role="navigation">
+    <div class="container">
+      <div class="brand">SAWAN YADAV</div>
+      <ul class="nav-links" id="mainNav">
+        <li><a href="#home" data-target="home" class="nav-link">Home</a></li>
+        <li><a href="#about" data-target="about" class="nav-link">About</a></li>
+        <li><a href="#skills" data-target="skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" data-target="projects" class="nav-link">Projects</a></li>
+        <li><a href="#resume" data-target="resume" class="nav-link">Resume</a></li>
+        <li><a href="#contact" data-target="contact" class="nav-link">Contact</a></li>
+      </ul>
+      <button id="mobileMenuBtn" class="mobile-menu" aria-label="Toggle menu">☰</button>
+    </div>
+  </nav>
+
+  <!-- HOME -->
+  <header id="home" class="hero section">
+    <div class="container hero-inner">
+      <div class="hero-left glass" data-aos="fade-right">
+        <h1>Hi, I'm <span class="typing">SAWAN</span></h1>
+        <p class="lead">Web Developer • UI tinkerer • Problem solver</p>
+        <div class="hero-ctas">
+          <a class="btn" href="#projects">View Projects</a>
+          <a class="btn ghost" href="#contact">Hire me</a>
+        </div>
+      </div>
+
+      <!-- fixed right frame: rectangular with rounded edges -->
+      <div class="hero-right glass" data-aos="fade-left" role="img" aria-label="Profile placeholder">
+        <div class="hero-photo-frame">
+          <!-- Use a rectangle file — not circular -->
+          <img src="/CODSOFT/images/profile.png" alt="Sawan Yadav profile" id="profileImg">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title" data-aos="zoom-in">About</h2>
+      <div class="about-grid">
+        <div class="glass about-card" data-aos="fade-up">
+          <h3>Short Bio</h3>
+          <p>I am a Software Engineer and Web/App Developer currently pursuing my studies at Chandigarh University. I specialize in building responsive web applications, modern UIs, and efficient backend systems. With strong proficiency in Java and hands-on experience in full-stack development, I focus on creating scalable, user-centric digital solutions. I’m passionate about new technologies, clean code, and continuous learning to solve real-world problems through innovation.</p>
+        </div>
+
+        <div class="glass about-photo-placeholder" data-aos="fade-up" role="img" aria-label="About photo placeholder">
+          <img src="/CODSOFT/images/profile.png" alt="Sawan Yadav">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section">
+    <div class="container">
+      <h2 class="section-title" data-aos="zoom-in">Skills</h2>
+      <div class="skills-grid">
+        <div class="skill glass" data-aos="flip-left">HTML</div>
+        <div class="skill glass" data-aos="flip-left">CSS</div>
+        <div class="skill glass" data-aos="flip-left">JavaScript</div>
+        <div class="skill glass" data-aos="flip-left">React</div>
+        <div class="skill glass" data-aos="flip-left">Node</div>
+        <div class="skill glass" data-aos="flip-left">Python</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title" data-aos="zoom-in">Projects</h2>
+      <div class="projects-grid">
+        <article class="project-card glass" data-aos="fade-up" data-project='{"title":"Project One","desc":"Short description of project one. Add tech, links and notes here."}'>
+          <div class="project-image-placeholder">Project Image</div>
+          <h3>Project UNICONNECT</h3>
+          <p class="muted">“A unified campus platform where students can share notes, buy & sell items, find teammates, and connect with peers — all in one modern, student-focused app.”</p>
+          <button class="btn small open-modal">Preview</button>
+        </article>
+        <article class="project-card glass" data-aos="fade-up" data-aos-delay="120" data-project='{"title":"Project Two","desc":"Short description of project two. Add tech, links and notes here."}'>
+          <div class="project-image-placeholder">Project Image</div>
+          <h3>Project Two</h3>
+          <p class="muted">Short blurb</p>
+          <button class="btn small open-modal">Preview</button>
+        </article>
+        <article class="project-card glass" data-aos="fade-up" data-aos-delay="240" data-project='{"title":"Project Three","desc":"Short description of project three. Add tech, links and notes here."}'>
+          <div class="project-image-placeholder">Project Image</div>
+          <h3>Project Three</h3>
+          <p class="muted">Short blurb</p>
+          <button class="btn small open-modal">Preview</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="projectModal" class="modal" role="dialog" aria-hidden="true" aria-labelledby="modalTitle">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-panel glass" role="document">
+      <button class="modal-close" id="modalClose" aria-label="Close preview">✕</button>
+      <h3 id="modalTitle">Project Title</h3>
+      <div class="modal-body">
+        <div class="modal-image-placeholder">Large Image Placeholder</div>
+        <p id="modalDesc">Project description will appear here. Replace with your text and links.</p>
+        <div class="modal-meta">
+          <strong>Tech:</strong> <span id="modalTech">HTML, CSS, JS</span>
+        </div>
+        <div class="modal-actions">
+          <a class="btn" href="#" id="modalLive" target="_blank" rel="noopener">Open Live</a>
+          <a class="btn ghost" href="#" id="modalCode" target="_blank" rel="noopener">Source</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESUME -->
+  <section id="resume" class="section">
+    <div class="container">
+      <h2 class="section-title" data-aos="zoom-in">Resume</h2>
+      <div class="resume-wrap">
+        <div id="resumeContent" class="glass resume-box" data-aos="fade-up">
+          <h3>Professional Summary</h3>
+          <p><!-- Replace with your summary --></p>
+          <h3>Education</h3>
+          <ul>
+            <li><strong>B.E. — Computer Science</strong> — Chandigarh University — 2024-2028</li>
+          </ul>
+          <h3>Experience</h3>
+          <ul>
+            <li><strong>Role</strong> — Company — Year(s)</li>
+            <li>achievements.</li>
+          </ul>
+        </div>
+        <div class="resume-actions">
+          <button id="downloadPdfBtn" class="btn">Download Résumé (PDF)</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="section-title" data-aos="zoom-in">Contact</h2>
+      <div class="contact-grid">
+        <form id="contactForm" class="glass contact-form" data-aos="fade-up">
+          <label><span class="sr">Name</span><input type="text" name="user_name" placeholder="Your name" required></label>
+          <label><span class="sr">Email</span><input type="email" name="user_email" placeholder="you@example.com" required></label>
+          <label><span class="sr">Message</span><textarea name="message" rows="6" placeholder="A short message..." required></textarea></label>
+          <div class="form-actions">
+            <button type="submit" class="btn">Send Message</button>
+            <button type="reset" class="btn ghost">Reset</button>
+          </div>
+          <p id="formStatus" aria-live="polite" class="form-status"></p>
+        </form>
+        <aside class="glass contact-info" data-aos="fade-up">
+          <h3>Contact Info</h3>
+          <p>Email: <strong>sawanyadav3010@gmail.com</strong></p>
+          <p>Location: <strong>PUNJAB</strong></p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <small>© <span id="year"></span> SAWAN — Built with HTML, CSS, JS</small>
+  </footer>
+
+  <!-- THEME TOGGLE -->
+  <button id="themeToggle" aria-label="Toggle theme" title="Toggle theme">☾</button>
+
+  <!-- SCRIPTS -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({ offset: 120, duration: 700, once: true });
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

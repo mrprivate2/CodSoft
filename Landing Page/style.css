@@ -1,0 +1,223 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: rgb(0, 0, 0);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  font-size: 1.8em;
+  font-weight: 700;
+  color: #00d9ff;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  background-color: #00d9ff;
+  color: #000000;
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #00d9ff;
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  background: url('https://roadtovr.com/wp-content/uploads/2023/07/bci-hero.jpg') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  padding-top: 80px; /* 👈 Offset navbar height */
+}
+
+.hero-content {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 40px;
+  border-radius: 20px;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.hero-content h2 {
+  font-size: 2.8em;
+  color: #00d9ff;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.2em;
+  color: #ddd;
+  margin-bottom: 30px;
+}
+
+.btn {
+  text-decoration: none;
+  background: #00d9ff;
+  color: #000000;
+  padding: 12px 25px;
+  border-radius: 25px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #fff;
+  color: #0e0e0e;
+  box-shadow: 0 0 15px #00d9ff;
+  transform: scale(1.05);
+}
+
+/* Section General Styles */
+section {
+  padding: 120px 10%; /* 👈 Space below navbar */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+section img {
+  width: 45%;
+  border-radius: 20px;
+  transition: transform 0.4s ease;
+}
+
+section img:hover {
+  transform: scale(1.05);
+}
+
+section .text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.text h2 {
+  color: #00d9ff;
+  font-size: 2.2em;
+  margin-bottom: 20px;
+}
+
+/* Alternate Section Background */
+.alt {
+  background-color: #000000;
+  flex-direction: row-reverse;
+}
+
+/* Features */
+.features {
+  text-align: center;
+  padding: 120px 5%;
+  background-color: #000000;
+}
+
+.features h2 {
+  color: #00d9ff;
+  margin-bottom: 40px;
+  font-size: 2.3em;
+}
+
+.feature-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.feature-box {
+  background: #000;
+  border-radius: 15px;
+  padding: 20px;
+  width: 300px;
+  transition: 0.3s;
+}
+
+.feature-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 15px #00d9ff;
+}
+
+.feature-box img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 80px 10%;
+  background: #000;
+}
+
+footer h2 {
+  color: #00d9ff;
+  margin-bottom: 15px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+  section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  section img {
+    width: 100%;
+  }
+
+  .navbar {
+    flex-direction: column;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero-content h2 {
+    font-size: 2em;
+  }
+}
